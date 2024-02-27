@@ -1,4 +1,4 @@
-﻿using monki_okpos_daemon.model.menu;
+﻿using MonkiDaemon.model.menu;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace monki_okpos_daemon.model.master
+namespace MonkiDaemon.model.master
 {
     public class DataModel
     {

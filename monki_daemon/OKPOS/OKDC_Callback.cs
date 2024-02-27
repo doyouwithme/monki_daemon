@@ -1,12 +1,12 @@
-﻿using monki_okpos_daemon.communcation;
-using monki_okpos_daemon.util;
+﻿using MonkiDaemon.communcation;
+using MonkiDaemon.util;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Concurrent;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 
-namespace monki_okpos_daemon.OKPOS
+namespace MonkiDaemon.OKPOS
 {
     public class OKDC_Callback
     {

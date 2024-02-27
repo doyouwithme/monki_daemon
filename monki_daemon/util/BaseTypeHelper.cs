@@ -13,7 +13,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace monki_okpos_daemon.util
+namespace MonkiDaemon.util
 {
     public static class BaseTypeHelper
     {

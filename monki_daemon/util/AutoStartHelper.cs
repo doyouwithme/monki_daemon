@@ -1,5 +1,5 @@
 ﻿using Microsoft.Win32;
-using monki_okpos_daemon.util;
+using MonkiDaemon.util;
 using MonkiDaemon.Properties;
 using System;
 using System.Collections.Generic;

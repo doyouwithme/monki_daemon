@@ -1,11 +1,11 @@
-﻿using monki_okpos_daemon.config;
-using monki_okpos_daemon.util;
+﻿using MonkiDaemon.config;
+using MonkiDaemon.util;
 using RestSharp;
 using System;
 using System.Net;
 using System.Threading.Tasks;
 
-namespace monki_okpos_daemon.communcation
+namespace MonkiDaemon.communcation
 {
     public class RestAPIHelper
     {

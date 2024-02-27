@@ -1,8 +1,8 @@
-﻿using monki_okpos_daemon.config;
+﻿using MonkiDaemon.config;
 using System;
 using System.IO;
 
-namespace monki_okpos_daemon.OKPOS
+namespace MonkiDaemon.OKPOS
 {
     class OKDC_INFO
     {

@@ -1,4 +1,4 @@
-﻿namespace monki_okpos_daemon.config
+﻿namespace MonkiDaemon.config
 {
     class Config
     {

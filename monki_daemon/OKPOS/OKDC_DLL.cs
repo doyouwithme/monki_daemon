@@ -2,7 +2,7 @@
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace monki_okpos_daemon.OKPOS
+namespace MonkiDaemon.OKPOS
 {
     class OKDC_DLL
     {

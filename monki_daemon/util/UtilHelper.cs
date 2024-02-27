@@ -1,6 +1,6 @@
 ﻿using Microsoft.Win32;
-using monki_okpos_daemon.config;
-using monki_okpos_daemon.util;
+using MonkiDaemon.config;
+using MonkiDaemon.util;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Sentry;
@@ -19,7 +19,7 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace monki_okpos_daemon.util
+namespace MonkiDaemon.util
 {
     public static class UtilHelper
     {

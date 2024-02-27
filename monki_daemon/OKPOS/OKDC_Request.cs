@@ -1,6 +1,6 @@
-﻿using monki_okpos_daemon.communcation;
-using monki_okpos_daemon.model.master;
-using monki_okpos_daemon.util;
+﻿using MonkiDaemon.communcation;
+using MonkiDaemon.model.master;
+using MonkiDaemon.util;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Threading.Tasks;
 
-namespace monki_okpos_daemon.OKPOS
+namespace MonkiDaemon.OKPOS
 {
     public class OKDC_Request
     {

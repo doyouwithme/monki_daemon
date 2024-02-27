@@ -13,14 +13,14 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
-namespace monki_okpos_daemon.util
+namespace MonkiDaemon.util
 {
     public class LogHelper
     {
         private static LogHelper _instance;
         private ILog _log;
-
         public static LogHelper Instance
         {
             get
@@ -31,6 +31,7 @@ namespace monki_okpos_daemon.util
             }
             set => LogHelper._instance = value;
         }
+
 
         public LogHelper()
         {
@@ -59,6 +60,11 @@ namespace monki_okpos_daemon.util
         {
             logMsg = string.Format("[{0}][{1}][line:{2}]{3}", (object)Path.GetFileName(file), (object)method, (object)lineNumber, (object)logMsg);
             this._log.Info((object)logMsg);
+            if (frmMain.richbox == null)
+                frmMain.richbox = new RichTextBox();
+            frmMain.richbox.AppendText(logMsg + Environment.NewLine);
+            frmMain.richbox.ScrollToCaret();
+
         }
 
         public void Info<T>(string logMsg, T data, [CallerFilePath] string file = null, [CallerMemberName] string method = null, [CallerLineNumber] int lineNumber = 0)

@@ -1,35 +1,39 @@
-﻿using monki_okpos_daemon.communcation;
-using monki_okpos_daemon.config;
-using monki_okpos_daemon.OKPOS;
-using monki_okpos_daemon.util;
+﻿using MonkiDaemon.communcation;
+using MonkiDaemon.config;
+using MonkiDaemon.OKPOS;
+using MonkiDaemon.util;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Threading;
 
-namespace monki_okpos_daemon
+namespace MonkiDaemon
 {
     public partial class frmMain : Form
     {
         MqttHelper mqttHelper = null;
+        public static RichTextBox richbox;
 
         public frmMain()
         {
             InitializeComponent();
+            CheckForIllegalCrossThreadCalls = false;
         }
 
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            richTextBox1.Text = "";
+            richbox = richTextBox1;
             lblMQTT.Text = "MQTT : Connected";
             lblOKDC.Text = "OKDC : Connected";
             InitMQTTHelper();
             MqttStart_timer();
 
-            notifyIcon1.Visible = true;
-            this.Hide();
-            this.ShowInTaskbar = false;
+            //notifyIcon1.Visible = true;
+            //this.Hide();
+            //this.ShowInTaskbar = false;
         }
 
 
@@ -51,6 +55,7 @@ namespace monki_okpos_daemon
         void _timer_Tick(object sender, EventArgs e)
         {
             if (mqttHelper == null) return;
+  
             if (_CheckMqttStatusCounter >= 10 || _CheckMqttStatusCounter == 0)
             {
                 CheckMqttConnection();
@@ -105,23 +110,27 @@ namespace monki_okpos_daemon
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
-            ProcessClose();
+            CloseProcess();
         }
 
-
-        private void hideToolStripMenuItem_Click(object sender, EventArgs e) => Hide();
-
-        private void showToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ShowForm()
         {
             this.ShowInTaskbar = true;
             this.Visible = true;
             this.WindowState = FormWindowState.Normal;
         }
- 
-        private void exitToolStripMenuItem1_Click(object sender, EventArgs e) => Application.Exit();
- 
 
-        private void ProcessClose()
+        private void HideForm() => Hide();
+
+        private void hideToolStripMenuItem_Click(object sender, EventArgs e) => HideForm();
+
+        private void showToolStripMenuItem_Click(object sender, EventArgs e) => ShowForm();
+
+        private void exitToolStripMenuItem1_Click(object sender, EventArgs e) => Application.Exit();
+
+        private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e) => ShowForm();
+
+        private void CloseProcess()
         {
             Stop_timer();
 
@@ -150,7 +159,6 @@ namespace monki_okpos_daemon
                 _timer = null;
             }
         }
-
 
     }
 }

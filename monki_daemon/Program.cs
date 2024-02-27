@@ -1,6 +1,6 @@
-﻿using monki_okpos_daemon.config;
-using monki_okpos_daemon.OKPOS;
-using monki_okpos_daemon.util;
+﻿using MonkiDaemon.config;
+using MonkiDaemon.OKPOS;
+using MonkiDaemon.util;
 using Sentry;
 using System;
 using System.Diagnostics;
@@ -8,7 +8,7 @@ using System.IO;
 using System.Reflection;
 using System.Windows.Forms;
 
-namespace monki_okpos_daemon
+namespace MonkiDaemon
 {
     static class Program
     {     

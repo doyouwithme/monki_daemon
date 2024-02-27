@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace monki_okpos_daemon.model
+namespace MonkiDaemon.model
 {
     public class ErrorResponseModel
     {

@@ -1,7 +1,7 @@
-﻿using monki_okpos_daemon.config;
-using monki_okpos_daemon.model;
-using monki_okpos_daemon.OKPOS;
-using monki_okpos_daemon.util;
+﻿using MonkiDaemon.config;
+using MonkiDaemon.model;
+using MonkiDaemon.OKPOS;
+using MonkiDaemon.util;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 using uPLibrary.Networking.M2Mqtt;
 using uPLibrary.Networking.M2Mqtt.Messages;
 
-namespace monki_okpos_daemon.communcation
+namespace MonkiDaemon.communcation
 {
     class MqttHelper
     {
@@ -25,13 +25,6 @@ namespace monki_okpos_daemon.communcation
         string topic { get; set; } 
         string clientId { get; set; }
 
-        public bool IsConnected
-        {
-            get
-            {
-                return MqttClient.IsConnected;
-            }
-        }
 
         public MqttHelper()
         {
@@ -175,6 +168,8 @@ namespace monki_okpos_daemon.communcation
             if (MqttClient == null) return false;
 
             if (MqttClient.IsConnected) return true;
+
+            LogHelper.Instance.Error(string.Format("MQTT not connected"));
 
             bool result = await MqttConnection();
 

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace monki_okpos_daemon.util
+namespace MonkiDaemon.util
 {
     public static class RegistryHelper
     {
